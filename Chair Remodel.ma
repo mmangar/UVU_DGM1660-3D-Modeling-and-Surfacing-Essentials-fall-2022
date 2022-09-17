@@ -1,0 +1,1 @@
+connectAttr "lambert3.msg" ":defaultShaderList1.s" -na;
