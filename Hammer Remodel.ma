@@ -1,6 +1,6 @@
 //Maya ASCII 2020 scene
 //Name: Hammer Remodel.ma
-//Last modified: Fri, Sep 16, 2022 10:51:28 PM
+//Last modified: Fri, Sep 16, 2022 10:56:55 PM
 //Codeset: UTF-8
 requires maya "2020";
 requires "mtoa" "4.0.0";
@@ -11,17 +11,17 @@ fileInfo "product" "Maya 2020";
 fileInfo "version" "2020";
 fileInfo "cutIdentifier" "201911140446-42a737a01c";
 fileInfo "osv" "Mac OS X 10.16";
-fileInfo "UUID" "37491D42-8C45-169E-440E-E58DA646946F";
+fileInfo "UUID" "F0D33767-9644-3418-F41A-07A069D76EB2";
 createNode transform -s -n "persp";
 	rename -uid "0308E020-5F4A-B930-492C-0D80E85C85EC";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -8.8151568391960247 18.43722853019208 19.967517904931906 ;
+	setAttr ".t" -type "double3" -13.946794981150248 21.358629926812036 31.602499088774604 ;
 	setAttr ".r" -type "double3" -12.938352729049525 -23.799999999998406 4.3452115885854445e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "11DE02DF-0446-6429-847A-28AA6BAEECB2";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 20.912071572598677;
+	setAttr ".coi" 33.959718229697728;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -469,6 +469,19 @@ createNode mesh -n "polySurfaceShape1" -p "pCube3";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
+createNode transform -n "pCube4";
+	rename -uid "61752835-5F48-D5B8-B90E-488A1690E734";
+createNode mesh -n "pCubeShape1" -p "pCube4";
+	rename -uid "2985D49D-D345-33D3-574B-60A0EE03FEF0";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".ai_translator" -type "string" "polymesh";
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "E8A12F0E-9345-6564-D562-4D9AAA1C84F7";
 	setAttr -s 3 ".lnk";
@@ -556,6 +569,9 @@ createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "F48CF0D3-4844-AE12-36E9-F090F70CDDAF";
 	setAttr ".b" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 200 ";
 	setAttr ".st" 6;
+createNode polyCube -n "polyCube1";
+	rename -uid "852E7065-8241-E2C0-AB86-E7B4E86074DE";
+	setAttr ".cuv" 4;
 select -ne :time1;
 	setAttr ".o" 101;
 	setAttr ".unw" 101;
@@ -589,6 +605,7 @@ select -ne :hardwareRenderGlobals;
 select -ne :ikSystem;
 	setAttr -s 4 ".sol";
 connectAttr "polyBridgeEdge1.out" "pCube3Shape.i";
+connectAttr "polyCube1.out" "pCubeShape1.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
@@ -606,4 +623,5 @@ connectAttr "hammermaterial.msg" "materialInfo1.m";
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "hammermaterial.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
 // End of Hammer Remodel.ma
