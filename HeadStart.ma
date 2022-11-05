@@ -1,9 +1,10 @@
 //Maya ASCII 2020 scene
 //Name: HeadStart.ma
-//Last modified: Fri, Oct 28, 2022 11:50:57 PM
+//Last modified: Fri, Oct 28, 2022 11:54:45 PM
 //Codeset: UTF-8
 requires maya "2020";
 requires "mtoa" "4.0.0";
+requires "stereoCamera" "10.0";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
@@ -11,17 +12,17 @@ fileInfo "product" "Maya 2020";
 fileInfo "version" "2020";
 fileInfo "cutIdentifier" "201911140446-42a737a01c";
 fileInfo "osv" "Mac OS X 10.16";
-fileInfo "UUID" "BC90E447-864C-471B-8DDC-FE8838556245";
+fileInfo "UUID" "EA9C07B5-E242-8DF5-A468-23A1EF15CFD4";
 createNode transform -s -n "persp";
 	rename -uid "82B7AE1D-3644-49B1-7693-27AD97E4AFCF";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 9.0788793517502633 3.8300690959961194 -7.3688376851771604 ;
-	setAttr ".r" -type "double3" -7.5383527293511987 -592.59999999990293 0 ;
+	setAttr ".t" -type "double3" -1.8910657279093974 8.2571092461697386 -20.557871191005596 ;
+	setAttr ".r" -type "double3" -12.338352729343114 -540.99999999998226 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "0A1E2DDE-294D-3B73-70DC-71A87E761B06";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 11.039912357920681;
+	setAttr ".coi" 20.379794047937121;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -21333,7 +21334,11 @@ createNode mesh -n "polySurfaceShape2" -p "polySurface2";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 15 ".pt";
+	setAttr -s 21 ".pt";
+	setAttr ".pt[38]" -type "float3" -0.0027968884 -0.0033181906 -0.0018331707 ;
+	setAttr ".pt[198]" -type "float3" -0.0027968884 -0.0033181906 -0.0018331707 ;
+	setAttr ".pt[283]" -type "float3" -0.0027968884 -0.0033181906 -0.0018331707 ;
+	setAttr ".pt[287]" -type "float3" -0.0027968884 -0.0033181906 -0.0018331707 ;
 	setAttr ".pt[529]" -type "float3" 0.0033517927 0.017806262 -0.0034316182 ;
 	setAttr ".pt[563]" -type "float3" 0.0041867495 0.00010317564 -0.0034894347 ;
 	setAttr ".pt[566]" -type "float3" 0.002222389 0.00083082169 -0.0021884441 ;
@@ -21351,19 +21356,19 @@ createNode mesh -n "polySurfaceShape2" -p "polySurface2";
 	setAttr ".pt[590]" -type "float3" 0.0014584661 -0.02239424 0.0024086535 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "A799DC0C-FC47-C191-0B38-FCAD05E246F0";
+	rename -uid "54BD2602-1E4C-82B0-998C-8684A0040225";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "F3D2E21C-CD44-AEEB-30D0-2EA8908F1C98";
+	rename -uid "0138783E-9D4B-5FDD-FA98-968113FE86FE";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "E62BE820-AD42-6575-178C-03B22C613757";
+	rename -uid "06C5B0C7-A347-8C7E-9E8A-A78BC25FA0EB";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "5474FD55-3847-2E9F-47ED-9987621B707A";
+	rename -uid "E5907390-4249-2479-90E1-278BABCE8B9F";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "94D90CCD-B44A-46A2-BC89-44B17EB9ED60";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "7CC8DBA5-F34F-5530-4D30-929ED238A65F";
+	rename -uid "2070E0C1-DB40-9A44-9B46-ABA305740EEF";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "4FA4A1F4-834A-2C6B-BFCC-33839800CB04";
 	setAttr ".g" yes;
@@ -21716,7 +21721,7 @@ createNode polyAppendVertex -n "polyAppendVertex85";
 createNode polyTweak -n "polyTweak33";
 	rename -uid "878911BE-4544-8580-ADBD-089DA611A300";
 	setAttr ".uopa" yes;
-	setAttr -s 76 ".tk[56:75]" -type "float3"  0 1.8626451e-08 0 0 4.4703484e-08
+	setAttr -s 20 ".tk[56:75]" -type "float3"  0 1.8626451e-08 0 0 4.4703484e-08
 		 0 0 4.4703484e-08 0 0 1.8626451e-08 0 0 -5.9604645e-08 0 -2.9802322e-08 -5.9604645e-08
 		 0 2.9802322e-08 -5.9604645e-08 0 0 -5.9604645e-08 0 0 1.4901161e-08 0 0 -5.9604645e-08
 		 0 0 -5.9604645e-08 0 0 1.4901161e-08 0 0.0010911226 0.0057705343 0.00027486682 0
@@ -21740,7 +21745,7 @@ createNode polyAppendVertex -n "polyAppendVertex87";
 createNode polyTweak -n "polyTweak34";
 	rename -uid "327B61AC-E549-A8AA-705C-6B9E0E3CF64E";
 	setAttr ".uopa" yes;
-	setAttr -s 80 ".tk[73:79]" -type "float3"  -0.00066772103 0.0065675378
+	setAttr -s 7 ".tk[73:79]" -type "float3"  -0.00066772103 0.0065675378
 		 0.0020956695 0.00066772103 0.0065675378 0.0020956695 0 0 0 -0.0011008978 0.0066133738
 		 0.0017850101 0 -4.4703484e-08 0 0 -4.4703484e-08 0 0.0011008978 0.0066133738 0.0017850101;
 createNode polyAppendVertex -n "polyAppendVertex88";
@@ -21760,7 +21765,7 @@ createNode polyAppendVertex -n "polyAppendVertex89";
 createNode polyTweak -n "polyTweak35";
 	rename -uid "9BE85A34-9841-5E62-6E9F-3C875654227B";
 	setAttr ".uopa" yes;
-	setAttr -s 84 ".tk[76:83]" -type "float3"  2.592802e-05 0.0035296977
+	setAttr -s 8 ".tk[76:83]" -type "float3"  2.592802e-05 0.0035296977
 		 0.00036454201 0 0 0 0 0 0 -2.592802e-05 0.0035296977 0.00036454201 -0.0069510341
 		 0.012508839 0.0073575079 0 -7.4505806e-08 0 0 -7.4505806e-08 0 0.0069510341 0.012508839
 		 0.0073575079;
@@ -21795,7 +21800,7 @@ createNode polyAppendVertex -n "polyAppendVertex93";
 createNode polyTweak -n "polyTweak36";
 	rename -uid "526BB863-D949-67A4-7028-3EA4DB8BD75A";
 	setAttr ".uopa" yes;
-	setAttr -s 92 ".tk[80:91]" -type "float3"  0.00038677454 0.0027163625
+	setAttr -s 12 ".tk[80:91]" -type "float3"  0.00038677454 0.0027163625
 		 0.0011070371 0 0 0 0 0 0 -0.00038677454 0.0027163625 0.0011070371 0.0024858564 0.0060301721
 		 0.0019054413 0 -1.4901161e-08 0 0 -1.4901161e-08 0 -0.0024858564 0.0060301721 0.0019054413
 		 0.0022497475 0.003151834 0.0011118054 0 4.4703484e-08 0 0 4.4703484e-08 0 -0.0022497475
@@ -21860,7 +21865,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge11";
 createNode polyTweak -n "polyTweak37";
 	rename -uid "DC72B97A-B343-7F29-033F-CDB9E7C6B3E2";
 	setAttr ".uopa" yes;
-	setAttr -s 104 ".tk[93:103]" -type "float3"  0.00072101504 0.0016312301
+	setAttr -s 11 ".tk[93:103]" -type "float3"  0.00072101504 0.0016312301
 		 0.00092864037 -0.00072101504 0.0016312301 0.00092864037 0 0 0 7.4505806e-09 -7.4505806e-09
 		 0 -0.00034786761 -0.00011125207 0.00068205595 0.00034786761 -0.00011125207 0.00068205595
 		 -7.4505806e-09 -7.4505806e-09 0 0 5.9604645e-08 0 -0.00043220073 -8.8050961e-05 0.00062441826
@@ -22064,7 +22069,7 @@ createNode polyAppendVertex -n "polyAppendVertex101";
 createNode polyTweak -n "polyTweak42";
 	rename -uid "4F42D637-C746-F1F6-9175-25BE08CC3DC1";
 	setAttr ".uopa" yes;
-	setAttr -s 106 ".tk[52:105]" -type "float3"  -0.0020593703 0.00036630221
+	setAttr -s 54 ".tk[52:105]" -type "float3"  -0.0020593703 0.00036630221
 		 0.0010256171 0 0 0 0 0 0 0.0020593703 0.00036630221 0.0010256171 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -22112,7 +22117,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge15";
 createNode polyTweak -n "polyTweak43";
 	rename -uid "06F71C63-594C-4865-2504-928612425C1D";
 	setAttr ".uopa" yes;
-	setAttr -s 108 ".tk[11:107]" -type "float3"  0.0048883259 0.012289479 -0.00060257316
+	setAttr -s 97 ".tk[11:107]" -type "float3"  0.0048883259 0.012289479 -0.00060257316
 		 -0.0014149547 0.0036982894 0.0030523241 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0006146729
 		 0.0099914968 0.0034474432 0 0 0 -7.1018934e-05 0.049843863 0.02068162 0 0 0 0 0 0
@@ -22231,7 +22236,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge17";
 createNode polyTweak -n "polyTweak46";
 	rename -uid "4C625F16-8840-A01C-4EAF-C78CBA752A6B";
 	setAttr ".uopa" yes;
-	setAttr -s 116 ".tk[11:115]" -type "float3"  -0.0010538995 0.004618153
+	setAttr -s 105 ".tk[11:115]" -type "float3"  -0.0010538995 0.004618153
 		 0.002224952 -0.00069403648 0.0044876039 0.0025929511 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0.0010538995 0.004618153 0.002224952 0 0 0 0.00069403648 0.0044876039 0.0025929511
@@ -22351,7 +22356,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge19";
 createNode polyTweak -n "polyTweak49";
 	rename -uid "4600B04C-0247-1C75-1139-FA888766FEFA";
 	setAttr ".uopa" yes;
-	setAttr -s 116 ".tk[52:115]" -type "float3"  0.009455204 0.0054866038 -0.0069208741
+	setAttr -s 64 ".tk[52:115]" -type "float3"  0.009455204 0.0054866038 -0.0069208741
 		 0 0 0 0 0 0 -0.009455204 0.0054866038 -0.0069208741 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0.0010942221 0.0076871365 -0.0047001243 -0.0010942221 0.0076871365 -0.0047001243
 		 0 0 0 0.0011872351 -0.0015434772 -0.0020141304 0 0 0 0 0 0 -0.0011872351 -0.0015434772
@@ -22568,7 +22573,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge27";
 createNode polyTweak -n "polyTweak58";
 	rename -uid "F6ABDE26-AB4B-A355-7605-B4855BCCA5FA";
 	setAttr ".uopa" yes;
-	setAttr -s 130 ".tk[128:129]" -type "float3"  -0.026785493 0.073803693 -0.096308038
+	setAttr -s 2 ".tk[128:129]" -type "float3"  -0.026785493 0.073803693 -0.096308038
 		 -0.031231731 0.072395027 -0.095326081;
 createNode polyMergeVert -n "polyMergeVert20";
 	rename -uid "BA31DBDD-0045-885B-F174-AF81FE65BC45";
@@ -22787,7 +22792,7 @@ createNode polyMergeVert -n "polyMergeVert29";
 createNode polyTweak -n "polyTweak68";
 	rename -uid "BB204E36-094E-EB51-C16A-5E8CD8D9266E";
 	setAttr ".uopa" yes;
-	setAttr -s 140 ".tk[138:139]" -type "float3"  -0.019420862 0.05248329 -0.070879638
+	setAttr -s 2 ".tk[138:139]" -type "float3"  -0.019420862 0.05248329 -0.070879638
 		 -0.020147562 0.061229825 -0.078927897;
 createNode polyExtrudeEdge -n "polyExtrudeEdge37";
 	rename -uid "0B804FD6-B94F-0FE3-2C4C-55A4D06C28C2";
@@ -23431,7 +23436,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge65";
 createNode polyTweak -n "polyTweak97";
 	rename -uid "D802770A-FC4D-3D94-AC26-47A550AB1C55";
 	setAttr ".uopa" yes;
-	setAttr -s 169 ".tk[18:168]" -type "float3"  0.0053465664 0.012141287 0.001550287
+	setAttr -s 151 ".tk[18:168]" -type "float3"  0.0053465664 0.012141287 0.001550287
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.015093297
 		 -0.0046605915 0.0073732734 0 0 0 0 0 0 -0.0074174702 -0.0066171736 -0.011211157 0
 		 0 0 0.0018281937 -0.0085048079 -0.0039705634 0.0061102957 -0.013071775 0.00014597178
@@ -23537,7 +23542,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge68";
 createNode polyTweak -n "polyTweak101";
 	rename -uid "C7CAD633-5F4A-8590-80C0-88AC2A976BA0";
 	setAttr ".uopa" yes;
-	setAttr -s 172 ".tk[135:171]" -type "float3"  0.016621292 0.010270327 0.034628838
+	setAttr -s 37 ".tk[135:171]" -type "float3"  0.016621292 0.010270327 0.034628838
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.039598614 0.01472953 0.067293406 0.054296464
@@ -23614,7 +23619,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge71";
 createNode polyTweak -n "polyTweak105";
 	rename -uid "5B83741A-4744-7867-F6E0-7F8BC69B3FD6";
 	setAttr ".uopa" yes;
-	setAttr -s 175 ".tk[94:174]" -type "float3"  -0.0055781528 0.0045301616
+	setAttr -s 81 ".tk[94:174]" -type "float3"  -0.0055781528 0.0045301616
 		 0.0005338788 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0013420805 -0.0046271086
 		 -0.00067877769 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -23655,7 +23660,7 @@ createNode polyMergeVert -n "polyMergeVert62";
 createNode polyTweak -n "polyTweak107";
 	rename -uid "27B5B4E3-7A42-368A-64EF-9092E0C4FA78";
 	setAttr ".uopa" yes;
-	setAttr -s 178 ".tk[176:177]" -type "float3"  0.050497264 0.014817357 0.057743698
+	setAttr -s 2 ".tk[176:177]" -type "float3"  0.050497264 0.014817357 0.057743698
 		 0.047332942 0.015180737 0.07163927;
 createNode polyExtrudeEdge -n "polyExtrudeEdge73";
 	rename -uid "74F2C6B8-3C46-4FD1-3BFF-2D9DF431BCC3";
@@ -23998,7 +24003,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge85";
 createNode polyTweak -n "polyTweak123";
 	rename -uid "0EFFF352-7D4F-39ED-51D6-A89D73A752DB";
 	setAttr ".uopa" yes;
-	setAttr -s 189 ".tk[101:188]" -type "float3"  -0.0020427406 -0.0025379807
+	setAttr -s 88 ".tk[101:188]" -type "float3"  -0.0020427406 -0.0025379807
 		 0.0017078519 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -24193,7 +24198,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge93";
 createNode polyTweak -n "polyTweak132";
 	rename -uid "F560566C-194A-0259-C621-BC9151FBF27F";
 	setAttr ".uopa" yes;
-	setAttr -s 197 ".tk[38:196]" -type "float3"  0.0092399716 0.015088081 0.01716128
+	setAttr -s 159 ".tk[38:196]" -type "float3"  0.0092399716 0.015088081 0.01716128
 		 0.0038012564 0.013066292 0.021132439 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -24512,7 +24517,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge106";
 createNode polyTweak -n "polyTweak147";
 	rename -uid "8E7C82EA-4C44-CF2A-3B3E-B8A73F88B903";
 	setAttr ".uopa" yes;
-	setAttr -s 214 ".tk[139:213]" -type "float3"  0.01154089 0.0021603703 0.027430981
+	setAttr -s 75 ".tk[139:213]" -type "float3"  0.01154089 0.0021603703 0.027430981
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -24645,7 +24650,7 @@ createNode polyMergeVert -n "polyMergeVert99";
 createNode polyTweak -n "polyTweak153";
 	rename -uid "C74389FC-0045-9174-135E-D48D79652A3D";
 	setAttr ".uopa" yes;
-	setAttr -s 219 ".tk[217:218]" -type "float3"  -0.02147153 0.063775301 0.072327346
+	setAttr -s 2 ".tk[217:218]" -type "float3"  -0.02147153 0.063775301 0.072327346
 		 -0.013537407 0.057676107 0.054243237;
 createNode polyExtrudeEdge -n "polyExtrudeEdge112";
 	rename -uid "00CBACC8-5844-3D90-A3B9-FA8C12B24F7D";
@@ -24714,7 +24719,7 @@ createNode polyMergeVert -n "polyMergeVert102";
 createNode polyTweak -n "polyTweak156";
 	rename -uid "91D418DD-B846-47F3-0FD8-52975BE5F264";
 	setAttr ".uopa" yes;
-	setAttr -s 222 ".tk[220:221]" -type "float3"  -0.038667142 0.018717289 0.05608815
+	setAttr -s 2 ".tk[220:221]" -type "float3"  -0.038667142 0.018717289 0.05608815
 		 -0.031139493 0.0099390447 0.046825945;
 createNode polyExtrudeEdge -n "polyExtrudeEdge115";
 	rename -uid "C3C866C4-7848-D55F-3569-BB92566FA0C4";
@@ -24731,7 +24736,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge115";
 createNode polyTweak -n "polyTweak157";
 	rename -uid "0EDA30EB-CC4B-5DAD-492B-75BD9F4F6449";
 	setAttr ".uopa" yes;
-	setAttr -s 223 ".tk[218:222]" -type "float3"  -0.00035655499 0.017357707
+	setAttr -s 5 ".tk[218:222]" -type "float3"  -0.00035655499 0.017357707
 		 -0.0036904216 -0.015103102 0.028867871 0.013449252 -0.030856043 0.035608977 0.038674355
 		 0 0 0 0 0 0;
 createNode polyMergeVert -n "polyMergeVert103";
@@ -24806,7 +24811,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge118";
 createNode polyTweak -n "polyTweak161";
 	rename -uid "0F4A3DA8-6646-6893-D68B-A0B4B5912697";
 	setAttr ".uopa" yes;
-	setAttr -s 224 ".tk[111:223]" -type "float3"  -0.010799825 0.047639355 -0.039976209
+	setAttr -s 113 ".tk[111:223]" -type "float3"  -0.010799825 0.047639355 -0.039976209
 		 0 0 0 0 0 0 0 0 0 -0.0065016448 0.023022383 -0.0050790906 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 -0.00038859248 0.012324762 0.0031404793 0.0013259649 -0.0060736015
 		 0.00055587292 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0068471134 0.051709652 0.0077451617
@@ -25083,7 +25088,7 @@ createNode polyMergeVert -n "polyMergeVert114";
 createNode polyTweak -n "polyTweak177";
 	rename -uid "8220FCD7-C74E-8870-AAF8-4B85B4DEEB34";
 	setAttr ".uopa" yes;
-	setAttr -s 238 ".tk[236:237]" -type "float3"  -0.010513462 0.0089967549
+	setAttr -s 2 ".tk[236:237]" -type "float3"  -0.010513462 0.0089967549
 		 -0.010896444 0 0 0;
 createNode polyExtrudeEdge -n "polyExtrudeEdge129";
 	rename -uid "FB2A6832-F949-3913-EBFD-169978D6A05B";
@@ -25100,7 +25105,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge129";
 createNode polyTweak -n "polyTweak178";
 	rename -uid "37024399-7F48-0409-B6CC-6A9B526E6B1C";
 	setAttr ".uopa" yes;
-	setAttr -s 238 ".tk[231:237]" -type "float3"  -0.00039525703 0.0018167943
+	setAttr -s 7 ".tk[231:237]" -type "float3"  -0.00039525703 0.0018167943
 		 6.7710876e-05 0 0 0 0 0 0 0 0 0 -0.00018434599 0.0017243028 0.00045728683 0 0 0 0
 		 0 0;
 createNode polyMergeVert -n "polyMergeVert115";
@@ -25272,7 +25277,7 @@ createNode polyMergeVert -n "polyMergeVert121";
 createNode polyTweak -n "polyTweak189";
 	rename -uid "5B4458BC-A94E-DEC0-CCD5-F0B47DE82D4B";
 	setAttr ".uopa" yes;
-	setAttr -s 242 ".tk[240:241]" -type "float3"  0.028486319 0.091944218 -0.0012301803
+	setAttr -s 2 ".tk[240:241]" -type "float3"  0.028486319 0.091944218 -0.0012301803
 		 0.025366338 0.095506221 -0.0036613345;
 createNode polyExtrudeEdge -n "polyExtrudeEdge136";
 	rename -uid "33AD79D5-E345-5363-A30D-34AC2E4EA6DD";
@@ -25381,7 +25386,7 @@ createNode polyMergeVert -n "polyMergeVert125";
 createNode polyTweak -n "polyTweak196";
 	rename -uid "FD564758-034D-C733-DB31-6CAF0B83C258";
 	setAttr ".uopa" yes;
-	setAttr -s 245 ".tk[243:244]" -type "float3"  -0.0062210113 0.042977482
+	setAttr -s 2 ".tk[243:244]" -type "float3"  -0.0062210113 0.042977482
 		 -0.0059434175 -0.0074319243 0.045760155 -0.0071175694;
 createNode polyExtrudeEdge -n "polyExtrudeEdge140";
 	rename -uid "3BBCBDB3-E740-DBE2-6B82-78B85C0ABF8F";
@@ -25656,7 +25661,7 @@ createNode polyMergeVert -n "polyMergeVert136";
 createNode polyTweak -n "polyTweak209";
 	rename -uid "CC17D8D6-D14F-9E10-4B28-F08985CF2D6F";
 	setAttr ".uopa" yes;
-	setAttr -s 255 ".tk[253:254]" -type "float3"  -0.01434277 -0.046265125 0.017481327
+	setAttr -s 2 ".tk[253:254]" -type "float3"  -0.01434277 -0.046265125 0.017481327
 		 -0.023642436 -0.045751639 0.0063645244;
 createNode polyExtrudeEdge -n "polyExtrudeEdge152";
 	rename -uid "EED7AB97-3D4C-092C-5E66-97BF85DA2A41";
@@ -26169,7 +26174,7 @@ createNode polyMergeVert -n "polyMergeVert156";
 createNode polyTweak -n "polyTweak236";
 	rename -uid "4E441C48-184D-64F9-0678-50B50384A955";
 	setAttr ".uopa" yes;
-	setAttr -s 277 ".tk[275:276]" -type "float3"  -0.036282554 -0.045088828
+	setAttr -s 2 ".tk[275:276]" -type "float3"  -0.036282554 -0.045088828
 		 -0.018379867 -0.033396021 -0.041091189 -0.017279744;
 createNode polyExtrudeEdge -n "polyExtrudeEdge173";
 	rename -uid "D74EFBDE-2048-31A3-E00E-E0ACC7599551";
@@ -26238,7 +26243,7 @@ createNode polyMergeVert -n "polyMergeVert159";
 createNode polyTweak -n "polyTweak239";
 	rename -uid "176EB9ED-B84D-85C7-204A-599248BC6979";
 	setAttr ".uopa" yes;
-	setAttr -s 280 ".tk[278:279]" -type "float3"  -0.033712164 -0.059838712
+	setAttr -s 2 ".tk[278:279]" -type "float3"  -0.033712164 -0.059838712
 		 -0.022692621 -0.034132749 -0.052536786 -0.014172435;
 createNode polyExtrudeEdge -n "polyExtrudeEdge176";
 	rename -uid "1918577A-C745-9AFE-ECF5-4D9BC11A1F8E";
@@ -26261,7 +26266,7 @@ createNode polyMergeVert -n "polyMergeVert160";
 createNode polyTweak -n "polyTweak240";
 	rename -uid "F1312608-A74B-7A97-7F9F-99926DBECA66";
 	setAttr ".uopa" yes;
-	setAttr -s 281 ".tk[279:280]" -type "float3"  -0.0098150223 -0.10053587
+	setAttr -s 2 ".tk[279:280]" -type "float3"  -0.0098150223 -0.10053587
 		 -0.026537031 -0.010437071 -0.095294237 -0.021395653;
 createNode polyExtrudeEdge -n "polyExtrudeEdge177";
 	rename -uid "A95730C5-BF4A-31F1-1CBB-BC9F4AA52844";
@@ -26284,7 +26289,7 @@ createNode polyMergeVert -n "polyMergeVert161";
 createNode polyTweak -n "polyTweak241";
 	rename -uid "B7A7B193-AB48-9926-55F0-2BBDE517CE4E";
 	setAttr ".uopa" yes;
-	setAttr -s 282 ".tk[280:281]" -type "float3"  -0.010437086 -0.095294178
+	setAttr -s 2 ".tk[280:281]" -type "float3"  -0.010437086 -0.095294178
 		 -0.021395683 -0.0042629242 -0.088645548 -0.018319458;
 createNode polyExtrudeEdge -n "polyExtrudeEdge178";
 	rename -uid "D524114B-FB47-3863-5190-458C0730B636";
@@ -26727,7 +26732,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge195";
 createNode polyTweak -n "polyTweak264";
 	rename -uid "8B40E3C4-9544-BE0D-AB26-41BDEB55F97C";
 	setAttr ".uopa" yes;
-	setAttr -s 299 ".tk[297:298]" -type "float3"  0.0018312447 -0.038547486
+	setAttr -s 2 ".tk[297:298]" -type "float3"  0.0018312447 -0.038547486
 		 0.015506327 0.0011527337 -0.038501933 0.015360773;
 createNode polyMergeVert -n "polyMergeVert178";
 	rename -uid "4D6F985D-3549-426B-2B55-C1BDBF030D98";
@@ -26947,7 +26952,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge204";
 createNode polyTweak -n "polyTweak275";
 	rename -uid "6158E0B1-5745-EFAA-64AA-A097F77A590D";
 	setAttr ".uopa" yes;
-	setAttr -s 308 ".tk[230:307]" -type "float3"  0.0041514914 -0.0015083402
+	setAttr -s 78 ".tk[230:307]" -type "float3"  0.0041514914 -0.0015083402
 		 -0.0028569102 0 0 0 0.001863515 -0.00095673651 -0.00080025196 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0036568306
 		 -0.0013990626 -0.001935184 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -27002,7 +27007,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge206";
 createNode polyTweak -n "polyTweak278";
 	rename -uid "E5940D78-2C47-63A5-9003-CB84429E3571";
 	setAttr ".uopa" yes;
-	setAttr -s 313 ".tk[309:312]" -type "float3"  -0.0056660753 -0.0023830533
+	setAttr -s 4 ".tk[309:312]" -type "float3"  -0.0056660753 -0.0023830533
 		 -0.00014775991 -0.0064737089 -0.0025745779 0.0057876706 0 0 0 0 0 0;
 createNode polyMergeVert -n "polyMergeVert188";
 	rename -uid "FD40BD58-1544-5EC7-423E-0E89C0F4E917";
@@ -27030,7 +27035,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge207";
 createNode polyTweak -n "polyTweak280";
 	rename -uid "3A28AC33-A446-004D-212F-BE86C321F9DE";
 	setAttr ".uopa" yes;
-	setAttr -s 314 ".tk[300:313]" -type "float3"  -0.0038128719 0.007067129
+	setAttr -s 14 ".tk[300:313]" -type "float3"  -0.0038128719 0.007067129
 		 0.0017544627 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0;
 createNode polyMergeVert -n "polyMergeVert189";
@@ -27148,7 +27153,7 @@ createNode polyMergeVert -n "polyMergeVert193";
 createNode polyTweak -n "polyTweak286";
 	rename -uid "405EDE12-8142-381F-65E2-87B89FFB5860";
 	setAttr ".uopa" yes;
-	setAttr -s 318 ".tk[316:317]" -type "float3"  -0.0081765726 -0.038173318
+	setAttr -s 2 ".tk[316:317]" -type "float3"  -0.0081765726 -0.038173318
 		 -0.047019958 -0.0041766837 -0.03281337 -0.037191749;
 createNode polyExtrudeEdge -n "polyExtrudeEdge212";
 	rename -uid "3627812B-D645-E378-9CF3-E19A351C3280";
@@ -27271,7 +27276,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge215";
 createNode polyTweak -n "polyTweak292";
 	rename -uid "B806ECE0-F44E-4877-DDA3-79A8172BBA9C";
 	setAttr ".uopa" yes;
-	setAttr -s 323 ".tk[264:322]" -type "float3"  -0.0012622848 -0.0066660419
+	setAttr -s 59 ".tk[264:322]" -type "float3"  -0.0012622848 -0.0066660419
 		 0.0054928064 -0.0009968339 -0.012767848 0.0073086619 -0.0022448078 -0.0086918473
 		 0.0038619041 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -27326,7 +27331,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge217";
 createNode polyTweak -n "polyTweak295";
 	rename -uid "02CA0027-7B4F-E18F-6E28-8288B06839D7";
 	setAttr ".uopa" yes;
-	setAttr -s 324 ".tk[319:323]" -type "float3"  -0.00065446936 -0.0022466332
+	setAttr -s 5 ".tk[319:323]" -type "float3"  -0.00065446936 -0.0022466332
 		 -0.005752027 0 0 0 0.00058040954 -1.630187e-05 -0.0021438599 -0.0041590207 -0.0005004108
 		 -0.017575204 -0.00074921921 -0.0037052184 -0.0071640015;
 createNode polyExtrudeEdge -n "polyExtrudeEdge218";
@@ -27593,7 +27598,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge229";
 createNode polyTweak -n "polyTweak310";
 	rename -uid "5B4B9C2C-0141-7D57-675E-D8BEF54E5A18";
 	setAttr ".uopa" yes;
-	setAttr -s 342 ".tk[313:341]" -type "float3"  -0.0034901723 0.0025991946
+	setAttr -s 29 ".tk[313:341]" -type "float3"  -0.0034901723 0.0025991946
 		 0.0029407144 0.00039485097 0.00032065809 0.00065785646 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 -6.1154366e-05 0.0027562827 2.938509e-05 0.0013909638 0.0013745874
@@ -27820,7 +27825,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge239";
 createNode polyTweak -n "polyTweak321";
 	rename -uid "4F2CD4B9-2C40-BEE8-3B13-D29B9F0A607D";
 	setAttr ".uopa" yes;
-	setAttr -s 356 ".tk[344:355]" -type "float3"  -2.7418137e-06 0.0030422807
+	setAttr -s 12 ".tk[344:355]" -type "float3"  -2.7418137e-06 0.0030422807
 		 -0.00064063072 -5.4299831e-05 0.0029348731 -0.0010403395 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 createNode polyMergeVert -n "polyMergeVert211";
@@ -27924,7 +27929,7 @@ createNode polyMergeVert -n "polyMergeVert215";
 createNode polyTweak -n "polyTweak326";
 	rename -uid "E28B2D29-5F4B-9C44-CBAF-A2A61E004A99";
 	setAttr ".uopa" yes;
-	setAttr -s 360 ".tk[358:359]" -type "float3"  0.036224097 -0.014381647 -0.044918865
+	setAttr -s 2 ".tk[358:359]" -type "float3"  0.036224097 -0.014381647 -0.044918865
 		 0.036296308 -0.0092627406 -0.043290257;
 createNode polyExtrudeEdge -n "polyExtrudeEdge244";
 	rename -uid "8C165A82-FD49-476F-CC27-7990DDA293EF";
@@ -28484,7 +28489,7 @@ createNode polyMergeVert -n "polyMergeVert239";
 createNode polyTweak -n "polyTweak351";
 	rename -uid "D62C25CC-534F-0EBD-3265-9E99A5707209";
 	setAttr ".uopa" yes;
-	setAttr -s 384 ".tk[382:383]" -type "float3"  0.013879985 -0.06622529 -0.051951826
+	setAttr -s 2 ".tk[382:383]" -type "float3"  0.013879985 -0.06622529 -0.051951826
 		 0.019109488 -0.064191937 -0.060095958;
 createNode polyExtrudeEdge -n "polyExtrudeEdge268";
 	rename -uid "9A913C6F-8E45-DF0E-CE8F-3D87D7536C97";
@@ -28619,7 +28624,7 @@ createNode polyMergeVert -n "polyMergeVert243";
 createNode polyTweak -n "polyTweak358";
 	rename -uid "ABA4CA62-914C-1673-A2D8-DD8ABFBA3A34";
 	setAttr ".uopa" yes;
-	setAttr -s 390 ".tk[388:389]" -type "float3"  0.054242387 0.0030362606 -0.014626503
+	setAttr -s 2 ".tk[388:389]" -type "float3"  0.054242387 0.0030362606 -0.014626503
 		 0.051159114 -0.00095182657 -0.015252411;
 createNode polyExtrudeEdge -n "polyExtrudeEdge273";
 	rename -uid "B50FA6BC-CC48-9284-528C-71ACA8AF6267";
@@ -29010,27 +29015,22 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge289";
 createNode polyTweak -n "polyTweak376";
 	rename -uid "81EFEE15-8F4B-6126-0169-21A6CFF5B08C";
 	setAttr ".uopa" yes;
-	setAttr -s 405 ".tk";
-	setAttr ".tk[215:380]" -type "float3"  0.0080202818 -0.0014404655 0.0055136085
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 -0.0056229606 -0.022551745 0.0018440485 0.0055331849 -0.021060377
-		 0.0037280321 0.0083729178 -0.018329769 0.0014864206 0 0 0 0 0 0 0 0 0 0.0027800426
-		 -0.01559642 0.00086271763 -0.001517877 -5.0067902e-06 0.00079238415 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.0056929439 -0.014166117 -0.00023043156
-		 -0.0086231083 -0.015712142 -0.0014364719 -0.0012116581 -0.013198078 0.0029440522
-		 -0.018167436 -0.0090138912 -0.01556316 0.00081503391 -0.015376091 0.0069253743 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.010397181 -0.0011045337 -0.0088084638 -0.0086420476
-		 0.00060290098 -0.0095879138 0 0 0 0 0 0 0 0 0 -0.00022149086 -0.00011521578 -0.0005864799
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
-	setAttr ".tk[404]" 0.002592504 -0.0012885332 0.0079881102;
+	setAttr -s 167 ".tk";
+	setAttr ".tk[215]" -type "float3" 0.0080202818 -0.0014404655 0.0055136085 ;
+	setAttr ".tk[342]" -type "float3" -0.0056229606 -0.022551745 0.0018440485 ;
+	setAttr ".tk[343]" -type "float3" 0.0055331849 -0.021060377 0.0037280321 ;
+	setAttr ".tk[344]" -type "float3" 0.0083729178 -0.018329769 0.0014864206 ;
+	setAttr ".tk[348]" -type "float3" 0.0027800426 -0.01559642 0.00086271763 ;
+	setAttr ".tk[349]" -type "float3" -0.001517877 -5.0067902e-06 0.00079238415 ;
+	setAttr ".tk[360]" -type "float3" -0.0056929439 -0.014166117 -0.00023043156 ;
+	setAttr ".tk[361]" -type "float3" -0.0086231083 -0.015712142 -0.0014364719 ;
+	setAttr ".tk[362]" -type "float3" -0.0012116581 -0.013198078 0.0029440522 ;
+	setAttr ".tk[363]" -type "float3" -0.018167436 -0.0090138912 -0.01556316 ;
+	setAttr ".tk[364]" -type "float3" 0.00081503391 -0.015376091 0.0069253743 ;
+	setAttr ".tk[370]" -type "float3" -0.010397181 -0.0011045337 -0.0088084638 ;
+	setAttr ".tk[371]" -type "float3" -0.0086420476 0.00060290098 -0.0095879138 ;
+	setAttr ".tk[375]" -type "float3" -0.00022149086 -0.00011521578 -0.0005864799 ;
+	setAttr ".tk[404]" -type "float3" 0.002592504 -0.0012885332 0.0079881102 ;
 createNode polyExtrudeEdge -n "polyExtrudeEdge290";
 	rename -uid "A060DD9A-644E-6E5C-465E-F19F436A796C";
 	setAttr ".uopa" yes;
@@ -29080,7 +29080,7 @@ createNode polyMergeVert -n "polyMergeVert261";
 createNode polyTweak -n "polyTweak379";
 	rename -uid "B2718D26-964A-1482-1F65-649BCA89D5AF";
 	setAttr ".uopa" yes;
-	setAttr -s 410 ".tk[408:409]" -type "float3"  -0.015865564 0.029189467 -0.050378859
+	setAttr -s 2 ".tk[408:409]" -type "float3"  -0.015865564 0.029189467 -0.050378859
 		 -0.01317808 0.021705866 -0.039435774;
 createNode polyExtrudeEdge -n "polyExtrudeEdge292";
 	rename -uid "A543D30E-2240-5958-9532-9F972F14AC30";
@@ -29195,7 +29195,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge296";
 createNode polyTweak -n "polyTweak385";
 	rename -uid "086E958E-1946-AEA9-99AB-38A84323661F";
 	setAttr ".uopa" yes;
-	setAttr -s 415 ".tk[404:414]" -type "float3"  0.0065280497 0.0096930861
+	setAttr -s 11 ".tk[404:414]" -type "float3"  0.0065280497 0.0096930861
 		 0.01145827 0 0 0 -0.0086454749 -0.017255634 -0.031095553 -0.0046050251 -0.013488442
 		 -0.013682447 -0.0051090121 -0.01348269 -0.013510495 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0;
@@ -30170,7 +30170,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge342";
 createNode polyTweak -n "polyTweak438";
 	rename -uid "744F9CC4-BC40-5DEB-AFA9-818ECA2FD4FF";
 	setAttr ".uopa" yes;
-	setAttr -s 483 ".tk[431:482]" -type "float3"  -0.000162296 0.00010484457
+	setAttr -s 52 ".tk[431:482]" -type "float3"  -0.000162296 0.00010484457
 		 -0.0024508014 0 0 0 0 0 0 0 0 0 0 0 0 0.00066573918 -0.00020551682 -0.0014914572
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -30445,7 +30445,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge356";
 createNode polyTweak -n "polyTweak453";
 	rename -uid "4A863298-0946-D809-0F25-19B07CF2546E";
 	setAttr ".uopa" yes;
-	setAttr -s 510 ".tk[508:509]" -type "float3"  0.012241259 -0.0037385821
+	setAttr -s 2 ".tk[508:509]" -type "float3"  0.012241259 -0.0037385821
 		 0.0031633377 0 0 0;
 createNode polyMergeVert -n "polyMergeVert290";
 	rename -uid "B395045C-554F-89A9-DA40-A798FA785D60";
@@ -31040,7 +31040,7 @@ createNode polyMergeVert -n "polyMergeVert314";
 createNode polyTweak -n "polyTweak484";
 	rename -uid "279E8921-A74D-0609-0A5F-A7B570BF3CF8";
 	setAttr ".uopa" yes;
-	setAttr -s 535 ".tk[533:534]" -type "float3"  0.041505814 -0.0031626821
+	setAttr -s 2 ".tk[533:534]" -type "float3"  0.041505814 -0.0031626821
 		 0.031893253 0.035568208 -0.00012326241 0.026420176;
 createNode polyExtrudeEdge -n "polyExtrudeEdge381";
 	rename -uid "215EA9B7-8040-E746-2781-E098F6A6763B";
@@ -31438,7 +31438,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge396";
 createNode polyTweak -n "polyTweak503";
 	rename -uid "603F1300-4843-9515-0E6D-A89E116D9816";
 	setAttr ".uopa" yes;
-	setAttr -s 549 ".tk[436:548]" -type "float3"  0.015788518 0.0039916039 0.0011247396
+	setAttr -s 113 ".tk[436:548]" -type "float3"  0.015788518 0.0039916039 0.0011247396
 		 0.0037693679 -0.0012643337 -0.0037620366 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -31875,7 +31875,7 @@ createNode polyMergeVert -n "polyMergeVert348";
 createNode polyTweak -n "polyTweak522";
 	rename -uid "88F0900D-F740-72F3-96F6-9091C54EC467";
 	setAttr ".uopa" yes;
-	setAttr -s 569 ".tk[567:568]" -type "float3"  -0.075680032 -0.015383482
+	setAttr -s 2 ".tk[567:568]" -type "float3"  -0.075680032 -0.015383482
 		 0.022805393 -0.080121905 -0.019125231 0.028999686;
 createNode polyExtrudeEdge -n "polyExtrudeEdge415";
 	rename -uid "B8C94899-D64A-115E-C664-C1A568C6B95F";
@@ -32404,7 +32404,7 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge437";
 createNode polyTweak -n "polyTweak546";
 	rename -uid "3FA767BD-5A43-B379-201D-40974DCD2BED";
 	setAttr ".uopa" yes;
-	setAttr -s 592 ".tk[436:591]" -type "float3"  -0.00099963695 -0.00015771389
+	setAttr -s 156 ".tk[436:591]" -type "float3"  -0.00099963695 -0.00015771389
 		 0.00016823411 -0.0043754205 0.010154188 0.020184278 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0040216371 0.0011443496 -0.0012104511
